@@ -47,14 +47,20 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     window.alert(
       "Please fix the following issue: Pilot and Co-Pilot require names."
     );
+    list.style.visibility = "hidden";
+
   } else if (fuelLevelValidation === "Not a Number" || fuelLevelValidation === "Empty") {
     window.alert(
       "Please fix the following issue: Fuel level must be a valid number."
     );
+    list.style.visibility = "hidden";
+
   } else if (cargoLevelValidation === "Not a Number" || cargoLevelValidation === "Empty") {
     window.alert(
       "Please fix the following issue: Cargo mass must be a valid number."
     );
+    list.style.visibility = "hidden";
+
   } else {
     console.log(`All inputs are filled in appropriately.`);
   }
@@ -65,7 +71,6 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
   let minFuelLevelRequired = 10000;
   let maxCargoAllowed = 10000;
   //If Fuel Level and Cargo Mass are Both True
-  console.log(typeof fuelLevel)
   if (fuelLevel >= minFuelLevelRequired && cargoLevel <= maxCargoAllowed) {
     document.getElementById("faultyItems").style.visibility = "visible";
     document.getElementById("launchStatus").style.color = "green";
